@@ -1,0 +1,33 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="no-background">
+        <ion-img id="logo" src="assets/icon/logo.svg"></ion-img>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button size="large" class="menu no-background" translate>
+        navbar.projet
+      </ion-button>
+      <ion-button size="large" class="menu no-background" translate>
+        navbar.produit
+      </ion-button>
+      <ion-button size="large" class="menu no-background" translate>
+        navbar.faq
+      </ion-button>
+      <ion-select interface="popover" id="selectLangage"
+                  [(ngModel)]="translate.currentLang"
+                  (ionChange)="changeLanguage($event)">
+        <div slot="label">
+          <ion-img src="assets/svg/flags/{{translate.currentLang}}.svg" id="flag"></ion-img>
+        </div>
+        <ion-select-option *ngFor="let lang of translate.getLangs()" [value]="lang">
+          {{lang.toUpperCase()}}
+        </ion-select-option>
+      </ion-select>
+      <ion-button size="large" color="primary" expand="block" fill="solid" id="connexionBtn" translate>
+        navbar.login
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
