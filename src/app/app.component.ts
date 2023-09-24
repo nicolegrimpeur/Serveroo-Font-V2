@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import {StorageService} from "./core/storage/storage.service";
 
 @Component({
   selector: 'app-root',
@@ -17,9 +18,19 @@ export class AppComponent {
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
-  constructor(private translate: TranslateService) {
-    this.translate.setDefaultLang('fr');
-    this.translate.addLangs(['fr', 'en']);
-    this.translate.use('fr');
+  constructor(private translate: TranslateService, private storage: StorageService) {
+    const listLang = ['fr', 'en'];
+    this.translate.addLangs(listLang);
+    const browserLang = this.translate.getBrowserLang()!;
+    this.translate.setDefaultLang(listLang.includes(browserLang) ? browserLang : 'fr');
+    this.translate.use(this.translate.getDefaultLang());
+
+    this.storage.getLanguage().then((language) => {
+      if (language) {
+        this.translate.use(language);
+      } else {
+        this.storage.setLanguage('fr');
+      }
+    });
   }
 }
