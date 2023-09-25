@@ -59,3 +59,7 @@ ion-button {
 #selectLangage::part(text) {
   display: none;
 }
+
+#selectLangage::part(container) {
+  padding-top: 5vh;
+}
