@@ -9,6 +9,8 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
 import {HeaderComponent} from "../shared/components/header/header.component";
 import {TranslateModule} from "@ngx-translate/core";
+import {SignInComponent} from "../shared/components/header/sign-in/sign-in.component";
+import {SignUpComponent} from "../shared/components/header/sign-up/sign-up.component";
 
 @NgModule({
     imports: [
@@ -18,6 +20,6 @@ import {TranslateModule} from "@ngx-translate/core";
         HomePageRoutingModule,
         TranslateModule
     ],
-    declarations: [HomePage, HeaderComponent]
+  declarations: [HomePage, HeaderComponent, SignInComponent, SignUpComponent]
 })
 export class HomePageModule {}

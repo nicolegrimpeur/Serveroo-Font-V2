@@ -28,6 +28,30 @@
       <ion-button size="large" color="primary" expand="block" fill="solid" id="connexionBtn" translate>
         navbar.login
       </ion-button>
+
+      <ion-modal #ionModal trigger="connexionBtn">
+        <ng-template>
+          <ion-header class="ion-no-border">
+            <ion-toolbar>
+              <ion-segment [value]="mode" (ionChange)="changeConnexion($event)" slot="start" id="segmentConnexion">
+                <ion-segment-button value="inscription">
+                  <ion-label translate>inscription.inscription</ion-label>
+                </ion-segment-button>
+                <ion-segment-button value="connexion">
+                  <ion-label translate>inscription.connection</ion-label>
+                </ion-segment-button>
+              </ion-segment>
+              <ion-button slot="end" fill="clear" (click)="dismissModal()" id="dismissModalBtn">
+                <ion-icon name="close"></ion-icon>
+              </ion-button>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content>
+            <app-sign-in *ngIf="mode === 'connexion'"></app-sign-in>
+            <app-sign-up *ngIf="mode === 'inscription'"></app-sign-up>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

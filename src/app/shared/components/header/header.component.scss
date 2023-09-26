@@ -1,10 +1,6 @@
-ion-toolbar {
+#navbar {
   margin: 1vh 2vw;
   width: initial !important;
-}
-
-ion-button {
-  //padding: 0 2vw;
 }
 
 #logo {
@@ -63,3 +59,12 @@ ion-button {
 #selectLangage::part(container) {
   padding-top: 5vh;
 }
+
+#segmentConnexion {
+  width: 50%;
+}
+
+#dismissModalBtn {
+  margin-right: 1%;
+}
+
